@@ -8,7 +8,7 @@
 	<style type="text/css">
 		input {
 			border: 1px solid black;
-			width: 30px;
+			width: 50px;
 			-moz-appearance: textfield;
 			text-align: center;
 		}
@@ -57,9 +57,9 @@
 
 		<div class="ml-10">
 			<p><
-			<input type="number" name="" placeholder="X" value="1">,
-			<input type="number" name="" placeholder="Y" value="-2">,
-			<input type="number" name="" placeholder="Z" value="4">
+				<input type="text" id="x1" name="" placeholder="X" maxlength="5" value="1" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')">
+				<input type="text" id="y1" name="" placeholder="Y" maxlength="5" value="-2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')">
+				<input type="text" id="z1" name="" placeholder="Z" maxlength="5" value="4" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')">
 			></p>
 
 		</div>
@@ -67,20 +67,20 @@
 
 		<div class="ml-10 mb-43">
 			<p><
-			<input type="number" name="" placeholder="X" value="1">,
-			<input type="number" name="" placeholder="Y" value="-2">,
-			<input type="number" name="" placeholder="Z" value="4">
+				<input type="text" id="x2" name="" placeholder="X" maxlength="5" value="1" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')">
+				<input type="text" id="y2" name="" placeholder="Y" maxlength="5" value="-2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')">
+				<input type="text" id="z2" name="" placeholder="Z" maxlength="5" value="4" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')">
 			></p>
 		</div>
 
 		<div class="ml-3 mb-43">
 			<p>Answer: </p>
-			<p class="ml-10" style="border: 1px black solid; width: 30px;">32</p>
+			<input type="text" id="result" class="ml-10" style="text-align: center; border: 1px black solid; width: 100px;" readonly>
 		</div>
 
 		<div class="flex items-center justify-center">
-			<button class="mr-10">Reset</button>
-			<button>Calculate</button>
+			<button onclick="cross_reset()" class="mr-10">Reset</button>
+			<button onclick="calculateCrossProduct()">Calculate</button>
 		</div>
 
 
@@ -99,23 +99,23 @@
 
 			<p>Cx:</p>
 			<div class='ml-3'>
-				<p>Cx = (-2)(4) - (4)(-2)</p>
-				<p>Cx = (-8) - (-8)</p>
-				<p>Cx = 0</p>
+				<p>Cx = ( <input type="number" readonly class='Ay'> )( <input type="number" readonly class='Bz'> ) - ( <input type="number" readonly class='Az'> )( <input type="number" readonly class='By'>)</p>
+				<p>Cx = ( <input type="number" readonly id='Cx1'> ) - ( <input type="number" readonly id='Cx2'> )</p>
+				<p>Cx = <input type="number" readonly id='CxR'></p>
 			</div>
 
 			<p>Cy:</p>
 			<div class='ml-3'>
-				<p>Cy = (-4)(1) - (1)(-4)</p>
-				<p>Cy = (-4) - (-4)</p>
-				<p>Cy = 0</p>
+				<p>Cy = ( <input type="number" readonly class='Az'> )( <input type="number" readonly class='Bx'> ) - ( <input type="number" readonly class='Ax'> )( <input type="number" readonly class='Bz'>)</p>
+				<p>Cy = ( <input type="number" readonly id='Cy1'> ) - ( <input type="number" readonly id='Cy2'> )</p>
+				<p>Cy = <input type="number" readonly id='CyR'></p>
 			</div>
 
 			<p>Cz:</p>
 			<div class='ml-3'>
-				<p>Cz = (1)(-2) - (-2)(1)</p>
-				<p>Cz = (-2) - (-2)</p>
-				<p>Cz = 0</p>
+				<p>Cz = ( <input type="number" readonly class='Ax'> )( <input type="number" readonly class='By'> ) - ( <input type="number" readonly class='Ay'> )( <input type="number" readonly class='Bx'>)</p>
+				<p>Cz = ( <input type="number" readonly id='Cz1'> ) - ( <input type="number" readonly id='Cz2'> )</p>
+				<p>Cz = <input type="number" readonly id='CzR'></p>
 			</div>
 			
 		</div>
