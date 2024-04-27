@@ -81,36 +81,63 @@ function calculateDistance() {
     var planeB = parseFloat(document.getElementById('planeB').value);
     var planeC = parseFloat(document.getElementById('planeC').value);
     var planeD = parseFloat(document.getElementById('planeD').value);
+    var planeZ = parseFloat(document.getElementById('planeZ').value);
+
+    if (planeZ != 0) {
+        if(planeZ > 0){
+            planeD = planeD - planeZ
+        } else{
+            planeD = planeD + planeZ
+
+        }
+    } 
 
     // Calculate the distance between the point and the plane
     var distance = Math.abs(planeA * pointX + planeB * pointY + planeC * pointZ + planeD) /
                    Math.sqrt(planeA * planeA + planeB * planeB + planeC * planeC);
 
-    document.getElementById('DPP_result').innerText = 'Distance: ' + distance.toFixed(2);
+    // document.getElementById('DPP_result').innerText = 'Distance: ' + distance.toFixed(2);
+
+
+    // step 1
+    // var equation = '\\( d = \\frac{' + a + '(1) + ' + b + '(-2) + ' + c + '(4) + ' + d + '}{\\sqrt{' + a + '^2 + ' + b + '^2 + ' + c + '^2}} \\)';
+        document.getElementById('s1').innerHTML = '\\( d = \\frac{' + planeA + '('+ pointX+') + ' + planeB + '('+pointY+') + ' + planeC + '('+pointZ+') + ' + planeD + '}{\\sqrt{' + planeA + '^2 + ' + planeB + '^2 + ' + planeC + '^2}} \\)';
+        // MathJax.typeset();
+
+    // step 2
+        document.getElementById('s2').innerHTML = '\\( d = \\frac{'+planeA*pointX+' + '+planeB*pointY+' + '+planeC*pointZ+' + '+planeD+'}{\\sqrt{'+planeA*planeA+' + '+planeB*planeB+' + '+planeC*planeC+'}} \\)'
+
+    // step3
+        document.getElementById('s3').innerHTML = '\\( d = \\frac{'+((planeA*pointX)+(planeB*pointY)+(planeC*pointZ)+(planeD))+'}{\\sqrt{'+((planeA*planeA)+(planeB*planeB)+(planeC*planeC))+'}} \\)'
+    // step4
+
+
+
+        eq1 =(planeA*pointX)+(planeB*pointY)+(planeC*pointZ)+(planeD)
+        eq2 = (planeA*planeA)+(planeB*planeB)+(planeC*planeC)
+        console.log(eq1,eq2)
+        // console.log(Number.isInteger(Math.sqrt(2)))
+        if (Number.isInteger(Math.sqrt(eq2))) {
+            if (Number.isInteger(eq1/Math.sqrt(eq2))) {
+             document.getElementById('DPP_result').innerHTML = '\\( d = '+eq1/Math.sqrt(eq2)+'\\)'
+
+            } else{
+        document.getElementById('DPP_result').innerHTML = '\\( d = \\frac{'+eq1+'}{{'+Math.sqrt(eq2)+'}} \\)'
+
+            }
+        } else{
+        document.getElementById('DPP_result').innerHTML = '\\( d = \\frac{'+eq1+'}{\\sqrt{'+eq2+'}} \\)'
+
+        }
+
+        // document.getElementById('DPP_result').innerHTML = '\\( d = \\frac{'+((planeA*pointX)+(planeB*pointY)+(planeC*planeZ)+(planeD))+'}{{7}} \\)'
+        MathJax.typeset();
+
+
+
+
+
+
 }
 
-function plotParametric() {
-    var equationX = document.getElementById('equationX').value;
-    var equationY = document.getElementById('equationY').value;
-    var paramStart = parseFloat(document.getElementById('paramStart').value);
-    var paramEnd = parseFloat(document.getElementById('paramEnd').value);
-
-    var data = [];
-    var tValues = [];
-
-    for (var t = paramStart; t <= paramEnd; t += 0.1) {
-        var x = eval(equationX.replace(/t/g, t)); // Evaluate the x equation for the current t
-        var y = eval(equationY.replace(/t/g, t)); // Evaluate the y equation for the current t
-        data.push({ x: x, y: y });
-        tValues.push(t);
-    }
-
-    var layout = {
-        title: 'Parametric Curve',
-        xaxis: { title: 'X' },
-        yaxis: { title: 'Y' }
-    };
-
-    Plotly.newPlot('plot', [{ x: data.map(d => d.x), y: data.map(d => d.y), mode: 'lines' }], layout);
-}
 

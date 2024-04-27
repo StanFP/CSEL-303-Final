@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distance Calculator with Step-by-Step Solution</title>
+</head>
+<body>
+
+<h2>Distance Calculator with Step-by-Step Solution</h2>
+
+<form id="distanceForm">
+    <label for="pointX">Point X Coordinate:</label>
+    <input type="number" id="pointX" name="pointX" required>
+    <br>
+    <label for="pointY">Point Y Coordinate:</label>
+    <input type="number" id="pointY" name="pointY" required>
+    <br>
+    <label for="pointZ">Point Z Coordinate:</label>
+    <input type="number" id="pointZ" name="pointZ" required>
+    <br>
+    <label for="planeEquation">Plane Equation (Ax + By + Cz + D = 0):</label>
+    <input type="text" id="planeEquation" name="planeEquation" required>
+    <br>
+    <button type="button" onclick="calculateDistance()">Calculate Distance</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+function calculateDistance() {
+    var pointX = parseFloat(document.getElementById('pointX').value);
+    var pointY = parseFloat(document.getElementById('pointY').value);
+    var pointZ = parseFloat(document.getElementById('pointZ').value);
+    var planeEquation = document.getElementById('planeEquation').value;
+
+    // Parse plane equation
+    var [A, B, C, D] = planeEquation.split(' ').map(parseFloat);
+
+    // Step-by-step solution
+    var steps = [];
+    steps.push("Step 1: Plug the coordinates of the point into the plane equation: " + A + "(" + pointX + ") + " + B + "(" + pointY + ") + " + C + "(" + pointZ + ") + " + D + " = 0");
+
+    // Calculate the value of the expression
+    var expressionValue = A * pointX + B * pointY + C * pointZ + D;
+    steps.push("Step 2: Calculate the value of the expression: " + expressionValue);
+
+    // Calculate the absolute value of the expression
+    var absoluteValue = Math.abs(expressionValue);
+    steps.push("Step 3: Calculate the absolute value of the expression: " + absoluteValue);
+
+    // Calculate the magnitude of the normal vector
+    var normalMagnitude = Math.sqrt(A * A + B * B + C * C);
+    steps.push("Step 4: Calculate the magnitude of the normal vector: " + normalMagnitude);
+
+    // Calculate the distance
+    var distance = absoluteValue / normalMagnitude;
+    steps.push("Step 5: Calculate the distance: " + distance);
+
+    // Display steps and result
+    var resultHTML = "<h3>Step-by-Step Solution:</h3>";
+    for (var i = 0; i < steps.length; i++) {
+        resultHTML += "<p>" + steps[i] + "</p>";
+    }
+    resultHTML += "<h3>Final Result:</h3><p>Distance between point and plane: " + distance.toFixed(2) + "</p>";
+
+    document.getElementById('result').innerHTML = resultHTML;
+}
+</script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
 	<style type="text/css">
 		input {
 			border: 1px solid black;
-			width: 30px;
+			width: 50px;
 			-moz-appearance: textfield;
 			text-align: center;
 		}
@@ -57,25 +57,26 @@
 
 		<div class="ml-10">
 			<p>(
-			<input type="number" name="" placeholder="X" value="1">,
-			<input type="number" name="" placeholder="Y" value="-2">,
-			<input type="number" name="" placeholder="Z" value="4">
+			<input type="text" name="" placeholder="X" value="1" id="pointX" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">,
+
+			<input type="text" name="" placeholder="Y" value="-2" id="pointY" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">,
+			<input type="text" name="" placeholder="Z" value="4" id="pointZ" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">
 			)</p>
 
 		</div>
 		<h1 class="ml-3">Enter Plane Equation: (Ax + By + Cz + D = 0)</h1>
 
 		<div class="ml-10 mb-43">
-			<input type="number" name="" placeholder="A" value="3">x+
-			<input type="number" name="" placeholder="B" value="2">y+
-			<input type="number" name="" placeholder="C" value="6">z+
-			<input type="number" name="" placeholder="D"  value="-5"> =
-			<input type="number" name="" placeholder="0" value="0">
+			<input type="text" id="planeA" name="" placeholder="A" value="3" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">x+
+			<input type="text" id="planeB" name="" placeholder="B" value="2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">y+
+			<input type="text" id="planeC" name="" placeholder="C" value="6" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">z+
+			<input type="text" id="planeD" name="" placeholder="D"  value="-5" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> =
+			<input type="text" id="planeZ" name="" placeholder="0" value="0" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">
 		</div>
 
 		<div class="flex items-center justify-center">
-			<button class="mr-10">Reset</button>
-			<button>Calculate</button>
+			<button class="mr-10" onclick="cross_reset()">Reset</button>
+			<button onclick="calculateDistance()">Calculate</button>
 		</div>
 
 
@@ -89,19 +90,22 @@
 
 			<p>Step 1:</p>
 
-			<p class="ml-6">\( d = \frac{3(1) + 2(-2) + 6(4) + -5}{\sqrt{3^2 + 2^2 + 6^2}} \)</p>
+			<!-- <p class="ml-6">\( d = \frac{3(1) + 2(-2) + 6(4) + -5}{\sqrt{3^2 + 2^2 + 6^2}} \)</p> -->
+			<p class="ml-6" id='s1'></p>
 			<br>
 
 			<p>Step 2:</p>
-			<p class="ml-6">\( d = \frac{3 + (-4) + 24 + -5}{\sqrt{9 + 4 + 36}} \)</p>
+			<!-- <p class="ml-6">\( d = \frac{3 + (-4) + 24 + -5}{\sqrt{9 + 4 + 36}} \)</p> -->
+			<p class="ml-6" id="s2"></p>
 
 			<p>Step 3:</p>
 
-			<p class="ml-6">\( d = \frac{18}{\sqrt{49}} \)</p>
+			<!-- <p class="ml-6" id="s3">\( d = \frac{18}{\sqrt{49}} \)</p> -->
+			<p class="ml-6" id="s3"></p>
 
 			<p>Step 4:</p>
 
-			<p class="ml-6" style="border: solid black 1px; width:20%">\( d = \frac{18}{{7}} \)</p>
+			<p class="ml-6" style="border: solid black 1px; width:20%" id=DPP_result></p>
 
 
 		</div>
