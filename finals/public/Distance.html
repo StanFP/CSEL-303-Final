@@ -5,14 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/paul.css">
-	<style type="text/css">
-		input {
-			border: 1px solid black;
-			width: 50px;
-			-moz-appearance: textfield;
-			text-align: center;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/paul_style.css">
+
 	 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -50,16 +44,16 @@
 
 <main class="flex items-center justify-center" >
 	
-	<div class="" style="border:1px solid red;margin-top: 100px; width: 500px;">
-		<h1 class="flex items-center justify-center ">Distance Between Point and a Plane</h1>
+	<div id="calc" class="" style="border: 1px solid black; margin-top: 100px; width: 600px;">
+		<h1 class="flex items-center justify-center title">Distance Between Point and a Plane</h1>
 		<hr>
 		<h1 class="ml-3">Enter Point coordinates</h1>
 
 		<div class="ml-10">
 			<p>(
-			<input type="text" name="" placeholder="X" value="1" id="pointX" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">,
+			<input type="text" name="" placeholder="X" value="1" id="pointX" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> ,
 
-			<input type="text" name="" placeholder="Y" value="-2" id="pointY" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">,
+			<input type="text" name="" placeholder="Y" value="-2" id="pointY" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> ,
 			<input type="text" name="" placeholder="Z" value="4" id="pointZ" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">
 			)</p>
 
@@ -67,16 +61,16 @@
 		<h1 class="ml-3">Enter Plane Equation: (Ax + By + Cz + D = 0)</h1>
 
 		<div class="ml-10 mb-43">
-			<input type="text" id="planeA" name="" placeholder="A" value="3" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">x+
-			<input type="text" id="planeB" name="" placeholder="B" value="2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">y+
-			<input type="text" id="planeC" name="" placeholder="C" value="6" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">z+
+			<input type="text" id="planeA" name="" placeholder="A" value="3" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> x +
+			<input type="text" id="planeB" name="" placeholder="B" value="2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> y +
+			<input type="text" id="planeC" name="" placeholder="C" value="6" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> z +
 			<input type="text" id="planeD" name="" placeholder="D"  value="-5" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> =
 			<input type="text" id="planeZ" name="" placeholder="0" value="0" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">
 		</div>
 
 		<div class="flex items-center justify-center">
-			<button class="mr-10" onclick="cross_reset()">Reset</button>
-			<button onclick="calculateDistance()">Calculate</button>
+			<button class="mr-10 reset" onclick="cross_reset()">Reset</button>
+			<button class="calculate" onclick="calculateDistance()">Calculate</button>
 		</div>
 
 

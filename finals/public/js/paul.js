@@ -130,7 +130,7 @@ function calculateDistance() {
 
         }
 
-        // document.getElementById('DPP_result').innerHTML = '\\( d = \\frac{'+((planeA*pointX)+(planeB*pointY)+(planeC*planeZ)+(planeD))+'}{{7}} \\)'
+        document.getElementById('DPP_result').innerHTML = '\\( d = \\frac{'+((planeA*pointX)+(planeB*pointY)+(planeC*planeZ)+(planeD))+'}{{7}} \\)'
         MathJax.typeset();
 
 

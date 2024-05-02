@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/paul.css">
+	<link rel="stylesheet" type="text/css" href="css/paul_style.css">
 	<style type="text/css">
 		input {
 			border: 1px solid black;
@@ -50,14 +51,89 @@
 
 <main class="flex items-center justify-center" >
 	
-	<div class="" style="border:1px solid red;margin-top: 100px; width: 500px;">
-		<h1 class="flex items-center justify-center ">Parametric Equation</h1>
+	<div class="" style="border:1px solid black;margin-top: 100px; width: 500px;">
+		<h1 class="flex items-center justify-center ">Parametric and Symmetric Equation</h1>
 		<hr>
 		<!-- lagay mo nalang dito code mo pati create ka sarili mong js at css wag mo gagalawin ung akin or ireremove -->
+
+		<h1 class="ml-3">Enter Point coordinates</h1>
+
+		<div class="ml-10 mb-10">
+
+			<p>P1 = (
+			<input type="text" name="" placeholder="X" value="3" id="px1" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> ,
+
+			<input type="text" name="" placeholder="Y" value="6" id="py1" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> ,
+			<input type="text" name="" placeholder="Z" value="9" id="pz1" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">
+			)</p>
+
+		</div>
+
+		<div class="ml-10 mb-10">
+
+			<p>P2 = (
+			<input type="text" name="" placeholder="X" value="2" id="px2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> ,
+
+			<input type="text" name="" placeholder="Y" value="4" id="py2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5"> ,
+			<input type="text" name="" placeholder="Z" value="6" id="pz2" oninput="this.value = this.value.replace(/[^0-9.-]/g, '')" maxlength="5">
+			)</p>
+
+		</div>
+
+		<div class="flex items-center justify-center">
+			<button class="mr-10 reset" onclick="cross_reset()">Reset</button>
+			<button class="calculate" onclick="calculateParam()">Calculate</button>
+		</div>
+
+		<!-- RESULTS -->
+		<div class="ml-3">
+			<h1 class="">Result and Step by Step:</h1>
+
+
+			<p>Parametric Form: </p>
+			<p class="ml-6">x = x0 + at</p>
+			<p class="ml-6">y = y0 + bt</p>
+			<p class="ml-6">z = z0 + ct</p>
+
+			<div class="ml-6 text-center" style="border: solid black 1px; width: 30%;">
+				<p class="" id="ax"></p>
+				<p class="" id="ay"></p>
+				<p class="" id=az></p>
+			</div>
+
+
+
+
+
+
+			<p>Symmetric Form: \( \frac{x-x0}{a}\ = \frac{y-y0}{b}\ = \frac{z-z0}{c}\)</p>
+			<div class="ml-6 text-center" style="border: solid black 1px; width: 50%;">
+				<p class="" id='sf'></p>
+			</div>
+
+			<p>Solution:</p>
+
+			<p>Directional Number</p>
+			<div class="ml-6">
+				<p class="">Step 1:</p>
+				<p class="ml-6" id="dn1"></p>
+
+				<p class="">Step 2:</p>
+				<p class="ml-6" id="dn2"></p>`
+
+
+
+			</div>
+
+
+
+		</div>
+
+
 
 	</div>
 	
 </main>
-	<script type="text/javascript" src="js/paul.js"></script>
+	<script type="text/javascript" src="js/otep.js"></script>
 </body>
 </html>

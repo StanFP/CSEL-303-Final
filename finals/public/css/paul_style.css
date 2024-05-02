@@ -1,0 +1,43 @@
+input {
+			border: 1px solid black;
+			width: 50px;
+			-moz-appearance: textfield;
+			text-align: center;
+		}
+body {
+	background-color: #D4B39B;
+}
+
+.title{
+	font-weight: bold;
+	font-size: 30px;
+}
+
+main div{
+	margin-bottom: 40px;
+}
+
+.reset{
+	background-color: #fff;
+	width: 100px;
+	font-weight: bold;
+}
+
+.calculate{
+	background-color: #000;
+	color: #fff;
+	width: 100px;
+	font-weight: bold;
+}
+
+hr{
+	margin-bottom: 30px;
+}
+
+main h1{
+	margin-bottom: 10px;
+}
+
+.cross_product p{
+	margin-bottom: 10px;
+}
