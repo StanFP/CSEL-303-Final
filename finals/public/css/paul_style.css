@@ -4,10 +4,9 @@ input {
 			-moz-appearance: textfield;
 			text-align: center;
 		}
-body {
-	background-color: #D4B39B;
-}
-
+body{
+      background-color: #FFCEE6;
+    }
 .title{
 	font-weight: bold;
 	font-size: 30px;
@@ -24,8 +23,8 @@ main div{
 }
 
 .calculate{
-	background-color: #000;
-	color: #fff;
+	background-color: #FFB661;
+	color: #000;
 	width: 100px;
 	font-weight: bold;
 }
@@ -40,4 +39,12 @@ main h1{
 
 .cross_product p{
 	margin-bottom: 10px;
+}
+
+body nav {
+	background-color: #FE67B1;
+}
+
+ul {
+	background-color: #FE67B1;
 }
